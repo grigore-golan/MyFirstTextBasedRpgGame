@@ -8,36 +8,48 @@ namespace MyFirstTextBasedRpgGame.Dialogues
 {
     public class Dialogue
     {
-        protected ICollection<DialogueLine> Lines { get; set; }
+        public ICollection<DialogueLine> Lines { get; private set; }
+
         public Dialogue()
         {
             Lines = new List<DialogueLine>();
         }
 
-        public class DialogueBuilder
+        public void Display()
         {
-            private Dialogue _dialogue = new();
-
-            public DialogueBuilder AddLine(DialogueLine line)
+            var nextLine = Lines.First();
+            while ( nextLine != null )
             {
-                if (_dialogue.Lines.Count > 0)
-                {
-                    _dialogue.Lines.Last().NextLine = line;
-                    line.PreviousLine = _dialogue.Lines.Last();
-                }
-                _dialogue.Lines.Add(line);
-                return this;
+                nextLine.Display();
+                Console.ReadLine();
+                nextLine = nextLine.NextLine;
             }
+        }
+    }
 
-            public Dialogue Build()
-            {
-                return _dialogue;
-            }
+    public class DialogueBuilder
+    {
+        private Dialogue _dialogue = new();
 
-            public void Reset()
+        public DialogueBuilder AddLine(DialogueLine line)
+        {
+            if (_dialogue.Lines.Count > 0)
             {
-                _dialogue = new Dialogue();
+                _dialogue.Lines.Last().NextLine = line;
+                line.PreviousLine = _dialogue.Lines.Last();
             }
+            _dialogue.Lines.Add(line);
+            return this;
+        }
+
+        public Dialogue Build()
+        {
+            return _dialogue;
+        }
+
+        public void Reset()
+        {
+            _dialogue = new Dialogue();
         }
     }
 }

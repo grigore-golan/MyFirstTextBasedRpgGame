@@ -1,5 +1,4 @@
-﻿using MyFirstTextBasedRpgGame.Common.BaseEntities;
-using MyFirstTextBasedRpgGame.Dialogues;
+﻿using MyFirstTextBasedRpgGame.Dialogues.Interactive;
 
 namespace MyFirstTextBasedRpgGame
 {
@@ -9,9 +8,8 @@ namespace MyFirstTextBasedRpgGame
         {
             Player player = Player.GetInstance();
 
-            var testLine = new DialogueLine("Welcome, fellow adventurer. This is just text to see how fast will text be going...", null, null);
-
-            testLine.Display();
+            InitialDialogue dialogue = new();
+            dialogue.Dialogue.Display();
         }
     }
 }

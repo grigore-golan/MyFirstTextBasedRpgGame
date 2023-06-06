@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace MyFirstTextBasedRpgGame.Common.BaseEntities
+﻿namespace MyFirstTextBasedRpgGame.Common.BaseEntities
 {
     public sealed class Player
     {
@@ -9,10 +7,11 @@ namespace MyFirstTextBasedRpgGame.Common.BaseEntities
 
         public string Name { get; private set; }
         public int Level { get; private set; }
+        public const string Pronoun = "You";
 
         private Player() 
         {
-            this.Name = "Player";
+            this.Name = "Adventurer";
             this.Level = 1;
         }
 

@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Common\Abstractions\" />
-    <Folder Include="Dialogues\Interactive\" />
     <Folder Include="Dialogues\Passive\" />
   </ItemGroup>
 
