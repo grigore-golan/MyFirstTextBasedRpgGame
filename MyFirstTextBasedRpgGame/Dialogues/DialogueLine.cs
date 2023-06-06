@@ -6,24 +6,23 @@ using System.Threading.Tasks;
 
 namespace MyFirstTextBasedRpgGame.Dialogues
 {
-    public  class DialogueLine
+    public class DialogueLine
     {
         public string Text { get; set; }
 
         public DialogueLine? NextLine { get; set; }
         public DialogueLine? PreviousLine { get; set; }
-        public Dialogue? PartOf { get; set; }
 
-        public DialogueLine(Dialogue? partOf, DialogueLine? nextLine, DialogueLine? previousLine, string text = "")
+        public DialogueLine(string text = "", DialogueLine? nextLine = null, DialogueLine? previousLine = null)
         {
             this.Text = text;
-            this.PartOf = partOf;
             this.NextLine = nextLine;
             this.PreviousLine = previousLine;
         }
 
         public void Display()
         {
+            if (!string.IsNullOrEmpty(Text))
             foreach(var character in Text)
             {
                 Console.Write(character);
