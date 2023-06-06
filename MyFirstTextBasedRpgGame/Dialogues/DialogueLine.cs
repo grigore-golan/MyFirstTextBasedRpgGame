@@ -14,7 +14,6 @@ namespace MyFirstTextBasedRpgGame.Dialogues
         public DialogueLine? PreviousLine { get; set; }
         public Dialogue? PartOf { get; set; }
 
-
         public DialogueLine(Dialogue? partOf, DialogueLine? nextLine, DialogueLine? previousLine, string text = "")
         {
             this.Text = text;
