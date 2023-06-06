@@ -8,8 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Abstractions\" />
+    <Compile Remove="Events\Visitables\EnemyVisitable.cs" />
+    <Compile Remove="Events\Visitables\NpcVisitable.cs" />
+    <Compile Remove="Events\Visitables\ScavengingVisitable.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Dialogues\Passive\" />
+    <Folder Include="Events\Visitables\" />
+    <Folder Include="Events\Visitors\" />
   </ItemGroup>
 
 </Project>
