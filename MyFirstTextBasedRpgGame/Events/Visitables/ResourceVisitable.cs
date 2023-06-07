@@ -1,6 +1,6 @@
 ﻿namespace MyFirstTextBasedRpgGame.Events.Abstractions
 {
-    public class ScavengingVisitable : IVisitable
+    public class ResourceVisitable : IVisitable
     {
         public void Accept(IVisitor visitor)
         {

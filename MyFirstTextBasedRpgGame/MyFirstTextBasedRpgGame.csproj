@@ -8,15 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Events\Visitables\EnemyVisitable.cs" />
-    <Compile Remove="Events\Visitables\NpcVisitable.cs" />
-    <Compile Remove="Events\Visitables\ScavengingVisitable.cs" />
+    <Folder Include="Dialogues\Passive\" />
+    <Folder Include="Events\Visitors\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dialogues\Passive\" />
-    <Folder Include="Events\Visitables\" />
-    <Folder Include="Events\Visitors\" />
+    <PackageReference Include="System.Windows.Extensions" Version="7.0.0" />
   </ItemGroup>
 
 </Project>

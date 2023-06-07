@@ -11,12 +11,12 @@ namespace MyFirstTextBasedRpgGame.Events.Visitors
 
         public void Visit(NpcVisitable visitable)
         {
-            Console.WriteLine("Oh, it seems to be a not agressive form of life. Maybe you should approach him.");
+            Console.WriteLine("Oh, it seems to be a non-agressive form of life. Maybe you should approach him.");
         }
 
-        public void Visit(ScavengingVisitable visitable)
+        public void Visit(ResourceVisitable visitable)
         {
-            Console.WriteLine("You think you can found a lot of goods in there.");
+            Console.WriteLine("Hmm, maybe you can find a lot of goods in there.");
         }
     }
 }
