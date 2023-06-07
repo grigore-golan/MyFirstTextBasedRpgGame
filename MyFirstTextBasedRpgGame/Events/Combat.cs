@@ -25,7 +25,7 @@ namespace MyFirstTextBasedRpgGame.Events
 
                 firstMove.Act(lastMove, this);
 
-                if (!lastMove.IsAlive)
+                if (!lastMove.IsAlive || HasEnded)
                     break;
 
                 lastMove.Attack(firstMove);
