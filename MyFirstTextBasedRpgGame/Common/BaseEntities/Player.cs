@@ -7,26 +7,27 @@ namespace MyFirstTextBasedRpgGame.Common.BaseEntities
     public sealed class Player : BaseUnit
     {
         private static Player _instance;
-        private static object _instanceLock = new();
+        private static readonly object _instanceLock = new();
 
         public int HealingPotionsCount { get; private set; }
-        public int Level { get; private set; }
+        public int Score { get; set; }
 
         public const string Pronoun = "You";
+        public readonly int MaxHealingPotions;
 
-        private Player() : base(20, 5, new Melee())
+        private Player() : base(20, 5, new Special())
         {
-            this.Name = "Adventurer";
-            this.Level = 1;
-            this.HealingPotionsCount = 5;
+            Name = "Adventurer";
+            Score = 0;
+            HealingPotionsCount = 5;
+            MaxHealingPotions = 10;
         }
 
         public static Player GetInstance()
         {
             if (_instance == null)
                 lock (_instanceLock)
-                    if (_instance == null)
-                        _instance = new Player();
+                    _instance ??= new Player();
 
             return _instance;
         }
@@ -96,9 +97,16 @@ namespace MyFirstTextBasedRpgGame.Common.BaseEntities
                               $"{this.HealingPotionsCount} Healing Potions left.\n");
         }
 
-        public override int GetDamage()
+        public void CollectHealingPotions(int quantity)
         {
-            return this.Damage;
+            if (HealingPotionsCount + quantity > MaxHealingPotions)
+            {
+                quantity = MaxHealingPotions - HealingPotionsCount;
+                Console.WriteLine($"You can only take {quantity} Healing Potions with you, the rest don't fit in your inventory.\n");
+            }
+
+            Console.WriteLine($"{quantity} Healing Potions succesfully added to your inventory.\n");
+            HealingPotionsCount += quantity;
         }
     }
 }

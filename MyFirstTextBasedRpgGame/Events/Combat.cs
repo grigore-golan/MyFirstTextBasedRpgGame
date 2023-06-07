@@ -24,9 +24,16 @@ namespace MyFirstTextBasedRpgGame.Events
                 Console.WriteLine($"You: {firstMove.CurrentHP} HP\n{lastMove.Name}: {lastMove.CurrentHP} HP\n");
 
                 firstMove.Act(lastMove, this);
+
+                if (!lastMove.IsAlive)
+                    break;
+
                 lastMove.Attack(firstMove);
             }
+
             HasEnded = true;
+            if (!lastMove.IsAlive)
+                firstMove.Score += 50;
         }
 
         public void EndCombat()

@@ -8,24 +8,5 @@ namespace MyFirstTextBasedRpgGame.Units.Enemies.Enemy
         {
             this.Name = type.GetType().Name + " " + this.GetType().Name;
         }
-
-        public override int GetDamage()
-        {
-            if (Randomizer.GetRandomUpTo100() < Type.GetAccuracy())
-            {
-                if (Randomizer.GetRandomUpTo100() < Type.GetCriticalChance())
-                {
-                    return Damage * Type.GetCriticalDamageMultiplier() / 100;
-                }
-                else
-                {
-                    return Damage;
-                }
-            }
-            else
-            {
-                return 0;
-            }
-        }
     }
 }
