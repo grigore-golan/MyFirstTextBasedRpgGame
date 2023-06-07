@@ -1,4 +1,5 @@
-﻿using MyFirstTextBasedRpgGame.Dialogues.Interactive;
+﻿using MyFirstTextBasedRpgGame.Dialogues.DisplayStrategies;
+using MyFirstTextBasedRpgGame.Dialogues.Interactive;
 using MyFirstTextBasedRpgGame.Events;
 using MyFirstTextBasedRpgGame.Events.Visitors;
 
@@ -18,6 +19,12 @@ namespace MyFirstTextBasedRpgGame
             EventVisitor visitor = new();
 
             InitialDialogue dialogue = new();
+
+            if (NeedsToBeFast())
+                dialogue.Dialogue.ChangeDisplayStrategy(new FastStrategy());
+
+            Console.Clear();
+
             dialogue.Dialogue.Display();
 
             while (player.IsAlive)
@@ -27,12 +34,26 @@ namespace MyFirstTextBasedRpgGame
                 Console.ReadLine();
             }
 
-            Console.WriteLine("What happened next to our brave Adventurer we will find out soon...\n" +
+            Console.WriteLine("As for now, the Adventurer is outside of our understanding.\n" +
                               "But now, this is the end...\n" +
                               "Or it is not?...\n\n\n" +
                               $"[Final Score: {player.Score}]");
 
             Console.ReadLine();
+        }
+
+        public static bool NeedsToBeFast()
+        {
+            Console.WriteLine("You want this dialogue to be fast? (y/n)\n");
+
+            string input;
+
+            input = Console.ReadLine();
+
+            if (input[0] == 'y')
+                return true;
+            else
+                return false;
         }
     }
 }

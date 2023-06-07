@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyFirstTextBasedRpgGame.Dialogues.DisplayStrategies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,12 @@ namespace MyFirstTextBasedRpgGame.Dialogues
     public class Dialogue
     {
         public ICollection<DialogueLine> Lines { get; private set; }
+        public Strategy DisplayStrategy { get; private set; }
 
-        public Dialogue()
+        public Dialogue(Strategy displayStrategy)
         {
             Lines = new List<DialogueLine>();
+            DisplayStrategy = displayStrategy;
         }
 
         public void Display()
@@ -20,16 +23,21 @@ namespace MyFirstTextBasedRpgGame.Dialogues
             var nextLine = Lines.First();
             while ( nextLine != null )
             {
-                nextLine.Display();
+                DisplayStrategy.Display(nextLine);
                 Console.ReadLine();
                 nextLine = nextLine.NextLine;
             }
+        }
+
+        public void ChangeDisplayStrategy(Strategy strategy)
+        {
+            DisplayStrategy = strategy;
         }
     }
 
     public class DialogueBuilder
     {
-        private Dialogue _dialogue = new();
+        private Dialogue _dialogue = new(new NormalStrategy());
 
         public DialogueBuilder AddLine(DialogueLine line)
         {
@@ -49,7 +57,7 @@ namespace MyFirstTextBasedRpgGame.Dialogues
 
         public void Reset()
         {
-            _dialogue = new Dialogue();
+            _dialogue = new Dialogue(new NormalStrategy());
         }
     }
 }
