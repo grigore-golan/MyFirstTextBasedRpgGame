@@ -1,9 +1,4 @@
 ﻿using MyFirstTextBasedRpgGame.Dialogues.DisplayStrategies;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyFirstTextBasedRpgGame.Dialogues
 {
@@ -21,7 +16,7 @@ namespace MyFirstTextBasedRpgGame.Dialogues
         public void Display()
         {
             var nextLine = Lines.First();
-            while ( nextLine != null )
+            while (nextLine != null)
             {
                 DisplayStrategy.Display(nextLine);
                 Console.ReadLine();

@@ -1,6 +1,5 @@
 ﻿using MyFirstTextBasedRpgGame.Units.Enemies.Enemy;
 using MyFirstTextBasedRpgGame.Units.Enemies.EnemyType;
-using System;
 
 namespace MyFirstTextBasedRpgGame.Units.Enemies
 {
@@ -25,8 +24,8 @@ namespace MyFirstTextBasedRpgGame.Units.Enemies
             if (creator == null)
                 throw new Exception("There is no such a unit!");
 
-            BaseUnit potion = creator();
-            return potion;
+            BaseUnit unit = creator();
+            return unit;
         }
     }
 }

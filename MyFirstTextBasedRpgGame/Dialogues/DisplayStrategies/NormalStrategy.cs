@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace MyFirstTextBasedRpgGame.Dialogues.DisplayStrategies
+﻿namespace MyFirstTextBasedRpgGame.Dialogues.DisplayStrategies
 {
     public class NormalStrategy : Strategy
     {

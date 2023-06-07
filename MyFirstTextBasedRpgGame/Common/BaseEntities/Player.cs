@@ -81,7 +81,7 @@ namespace MyFirstTextBasedRpgGame.Common.BaseEntities
                             break;
                     }
                 }
-            } 
+            }
         }
 
         public void Heal()

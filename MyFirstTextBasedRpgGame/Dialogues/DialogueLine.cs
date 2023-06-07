@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyFirstTextBasedRpgGame.Dialogues
+﻿namespace MyFirstTextBasedRpgGame.Dialogues
 {
     public class DialogueLine
     {
@@ -27,11 +21,11 @@ namespace MyFirstTextBasedRpgGame.Dialogues
             Console.WriteLine(Teller);
 
             if (!string.IsNullOrEmpty(Text))
-            foreach(var character in Text)
-            {
-                Console.Write(character);
-                Thread.Sleep(15);
-            }
+                foreach (var character in Text)
+                {
+                    Console.Write(character);
+                    Thread.Sleep(15);
+                }
 
             Console.WriteLine();
         }

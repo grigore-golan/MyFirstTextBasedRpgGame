@@ -1,5 +1,4 @@
-﻿using MyFirstTextBasedRpgGame.Common;
-using MyFirstTextBasedRpgGame.Events.Abstractions;
+﻿using MyFirstTextBasedRpgGame.Events.Abstractions;
 using MyFirstTextBasedRpgGame.Units;
 using MyFirstTextBasedRpgGame.Units.Enemies;
 

@@ -19,7 +19,7 @@ namespace MyFirstTextBasedRpgGame.Events
             Player firstMove = Player.GetInstance();
             BaseUnit lastMove = Enemy;
 
-            while(firstMove.IsAlive && lastMove.IsAlive && !HasEnded)
+            while (firstMove.IsAlive && lastMove.IsAlive && !HasEnded)
             {
                 Console.WriteLine($"You: {firstMove.CurrentHP} HP\n{lastMove.Name}: {lastMove.CurrentHP} HP\n");
 

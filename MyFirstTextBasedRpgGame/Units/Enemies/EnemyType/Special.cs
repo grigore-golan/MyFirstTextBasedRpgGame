@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyFirstTextBasedRpgGame.Units.Enemies.EnemyType
+﻿namespace MyFirstTextBasedRpgGame.Units.Enemies.EnemyType
 {
     public class Special : IType
     {
