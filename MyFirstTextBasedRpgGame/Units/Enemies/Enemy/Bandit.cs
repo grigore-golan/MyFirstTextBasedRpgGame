@@ -4,9 +4,9 @@ namespace MyFirstTextBasedRpgGame.Units.Enemies.Enemy
 {
     public class Bandit : BaseUnit
     {
-        public Bandit(string name, int maxHP, int damage, IType type) : base(name, maxHP, damage, type)
+        public Bandit(int maxHP, int damage, IType type) : base(maxHP, damage, type)
         {
-            this.Name = type.GetType().Name + " " + Name;
+            this.Name = type.GetType().Name + " " + this.GetType().Name;
         }
 
         public override int GetDamage()

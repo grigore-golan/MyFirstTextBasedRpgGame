@@ -9,18 +9,16 @@ namespace MyFirstTextBasedRpgGame.Units
         public int CurrentHP { get; protected set; }
         public int Damage { get; protected set; }
 
-        //public int RewardXP { get; protected set; }
         public bool IsAlive { get; protected set; }
 
         public IType Type { get; protected set; }
 
-        public BaseUnit(string name, int maxHP, int damage/*, int rewardXP*/, IType type)
+        public BaseUnit(int maxHP, int damage, IType type)
         {
-            Name = name;
+            Name = "";
             MaxHP = maxHP;
             CurrentHP = maxHP;
             Damage = damage;
-            //RewardXP = rewardXP;
             IsAlive = true;
             Type = type;
         }
@@ -28,17 +26,26 @@ namespace MyFirstTextBasedRpgGame.Units
         public void ReceiveDamage(int damage)
         {
             if (CurrentHP > damage)
+            {
                 CurrentHP -= damage;
+            }
             else
             {
-                CurrentHP = 0;
+                damage = CurrentHP;
+                CurrentHP -= damage;
                 IsAlive = false;
             }
+
+            Console.WriteLine($"{this.Name} received {damage} damage.\n");
         }
 
-        public void DoDamage(BaseUnit enemy)
+        public void Attack(BaseUnit enemy)
         {
             enemy.ReceiveDamage(this.GetDamage());
+            if (!enemy.IsAlive)
+            {
+                Console.WriteLine($"{enemy.Name} lost this battle and became one with the oblivion.\n");
+            }
         }
 
         public abstract int GetDamage();

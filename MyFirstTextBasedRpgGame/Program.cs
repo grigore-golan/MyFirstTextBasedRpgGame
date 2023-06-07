@@ -1,4 +1,7 @@
 ﻿using MyFirstTextBasedRpgGame.Dialogues.Interactive;
+using MyFirstTextBasedRpgGame.Events;
+using MyFirstTextBasedRpgGame.Units.Enemies.Enemy;
+using MyFirstTextBasedRpgGame.Units.Enemies.EnemyType;
 
 namespace MyFirstTextBasedRpgGame
 {
@@ -17,7 +20,15 @@ namespace MyFirstTextBasedRpgGame
             InitialDialogue dialogue = new();
             dialogue.Dialogue.Display();
 
+            var firstEnemy = new Doomed(15, 3, new Melee());
 
+            var testCombat = new Combat(firstEnemy);
+            testCombat.StartBattle();
+
+            Console.WriteLine("What happened next to our brave Adventurer we will find out soon...\n" +
+                              "But now, this is the end... Is this the end?");
+
+            Console.ReadLine();
         }
     }
 }
