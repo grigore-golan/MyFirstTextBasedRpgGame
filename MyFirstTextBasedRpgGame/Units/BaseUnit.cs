@@ -5,10 +5,10 @@ namespace MyFirstTextBasedRpgGame.Units
     public abstract class BaseUnit
     {
         public string Name { get; protected set; }
-        public int MaxHP { get; protected set; }
         public int CurrentHP { get; protected set; }
         public int Damage { get; protected set; }
 
+        public readonly int MaxHP;
         public bool IsAlive { get; protected set; }
 
         public IType Type { get; protected set; }
