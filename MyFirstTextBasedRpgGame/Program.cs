@@ -36,7 +36,7 @@ namespace MyFirstTextBasedRpgGame
 
             Console.WriteLine("As for now, the Adventurer is outside of our understanding.\n" +
                               "But now, this is the end...\n" +
-                              "Or it is not?...\n\n\n" +
+                              "Or it is not?...\n\n\n\n" +
                               $"[Final Score: {player.Score}]");
 
             Console.ReadLine();
